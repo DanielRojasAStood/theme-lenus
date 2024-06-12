@@ -1,0 +1,35 @@
+<?php
+/* 
+  1 - Clinicas
+*/
+// 1 - Clinicas
+function my_custom_post_clinics() {
+  $labels = array(
+      'name'               => _x('Clínicas', 'nombre general del tipo de entrada', 'textdomain'),
+      'singular_name'      => _x('Clínica', 'nombre singular del tipo de entrada', 'textdomain'),
+      'add_new'            => _x('Agregar nueva', 'clínica', 'textdomain'),
+      'add_new_item'       => __('Agregar nueva Clínica', 'textdomain'),
+      'edit_item'          => __('Editar Clínica', 'textdomain'),
+      'new_item'           => __('Nueva Clínica', 'textdomain'),
+      'all_items'          => __('Todas las Clínicas', 'textdomain'),
+      'view_item'          => __('Ver Clínica', 'textdomain'),
+      'search_items'       => __('Buscar Clínicas', 'textdomain'),
+      'not_found'          => __('No se encontraron Clínicas', 'textdomain'),
+      'not_found_in_trash' => __('No se encontraron Clínicas en la papelera', 'textdomain'),
+      'parent_item_colon'  => '',
+      'menu_name'          => 'Clínicas'
+  );
+  $args = array(
+      'labels'        => $labels,
+      'description'   => 'Contiene nuestras clínicas y datos específicos de las mismas',
+      'public'        => true,
+      'menu_position' => 5,
+      'menu_icon'     => 'dashicons-building',
+      'supports'      => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
+      'has_archive'   => true,
+      'taxonomies'    => array('category')  // Usando la taxonomía personalizada
+  );
+  register_post_type('clinics', $args); 
+}
+add_action('init', 'my_custom_post_clinics');
+
