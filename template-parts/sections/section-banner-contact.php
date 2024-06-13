@@ -19,6 +19,17 @@ $image_height  = ($image_info) ? $image_info[2] : '';
 $image_alt     = ($image_id) ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : ''; 
 $image_title   = ($image_id) ? get_the_title($image_id) : '';
 ?>
+
+<style>
+    .bannerCtaNosotros.columnTwoPro {
+        background-color: #E3EFF7;
+        padding: 50px 0 50px 10%;
+    }
+    .page-template-plantilla-investment-strategy .bannerCtaNosotros.columnTwoPro .btnProTwo .cta {
+        background-color: #2C71A5;
+        color: #fff !important;
+    }
+</style>
 <div class="bannerCtaNosotros columnTwoPro">
     <div class="column">
         <?php if (!empty($heading)) : ?>
