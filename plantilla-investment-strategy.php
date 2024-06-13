@@ -8,6 +8,7 @@ $show_text_image_banner = get_field('show_text_image_banner');
 $show_future            = get_field('show_future');
 $show_sectoral_approach = get_field('show_sectoral_approach');
 $show_charting_course   = get_field('show_charting_course');
+$show_strategy_2        = get_field('show_strategy_2');
 $show_portfolio         = get_field('show_portfolio');
 $show_banner_contact    = get_field('show_banner_contact');
 ?>
@@ -38,10 +39,16 @@ $show_banner_contact    = get_field('show_banner_contact');
         <!-- FIN TRAZANDO UN RUMBO -->
     <?php } ?>
 
-    <?php if ($show_portfolio) { ?>
+    <?php if ($show_strategy_2) { ?>
         <!-- ESTRATEGIA -->
-        <?php get_template_part('template-parts/sections/section', 'portfolio')  ?>
+        <?php get_template_part('template-parts/sections/section', 'strategy')  ?>
         <!-- FIN ESTRATEGIA -->
+    <?php } ?>
+
+    <?php if ($show_portfolio) { ?>
+        <!-- PORTAFOLIO -->
+        <?php get_template_part('template-parts/sections/section', 'portfolio')  ?>
+        <!-- FIN PORTAFOLIO -->
     <?php } ?>
 
     <?php if ($show_banner_contact) { ?>
