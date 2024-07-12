@@ -16,58 +16,42 @@ $args = array(
 $stories_query = new WP_Query($args); 
 ?>
 
-<style>
-    .monthContainerNos p {
-        font-family: Source Sans Pro;
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--jvm-color-text-5);
-        line-height: 17px;
-    }
-    .textContainerNos p {
-        font-family: Source Sans Pro;
-        font-size: 15px;
-        font-weight: 400;
-        color: var(--jvm-color-text-5);
-        line-height: 17px;
-    }
-
-</style>
-
-<div class="containerNuestraHistoria">
-    <span class="titleNuestraHistoria"><?php echo $subheading; ?></span>
-    <h2 class="titleContainerEquipo"> <?php echo $heading; ?></h2>
-</div>
-<section class="moduloA2 container">
-    <div class="modulo-HU02-3 slide mrgt2-5">
-        <?php if ($stories_query->have_posts()) : ?>
-            <?php while ($stories_query->have_posts()) : $stories_query->the_post(); 
-                $months = get_field('months');
-                ?>
-                <div class="containerCardSlideNost">
-                    <a href="<?php the_permalink(); ?>">
-                        <div class="cardComponent">
-                            <div class="containerNos">
-                                <h1 class="titleContainerNos2"><?php the_title(); ?></h1>
-                            </div>
-                            <div class="bodyThree">
-                                <?php if (!empty($months)) : ?>
-                                    <?php foreach ($months as $month) : 
-                                        $title = isset($month['month']) ? $month['month'] : '';
-                                        $details = isset($month['details']) ? $month['details'] : '';
-                                        ?>
-                                        <div class="monthContainerNos"><?php echo esc_html($title); ?></div>
-                                        <div class="textContainerNos"><?php echo $details; ?></div>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
+<section class="sectionHistory">
+    <div class="sectionHistory__container">
+        <div class="sectionHistory__title">
+            <p class="subheading"><?php echo $subheading; ?></p>
+            <h2 class="heading--48 line line--blue line--center"> <?php echo $heading; ?></h2>
+        </div>
+    </div>
+    <div class="sectionHistory__container">
+        <div class="slickSliderHistory">
+            <?php if ($stories_query->have_posts()) : ?>
+                <?php while ($stories_query->have_posts()) : $stories_query->the_post(); 
+                    $months = get_field('months');
+                    ?>
+                    <a href="<?php the_permalink(); ?>" class="slickSliderHistory__card">
+                        <h2 class="heading--64"><?php the_title(); ?></h2>
+                        <div class="slickSliderHistory__info">
+                            <?php if (!empty($months)) : ?>
+                                <?php foreach ($months as $month) : 
+                                    $title = isset($month['month']) ? $month['month'] : '';
+                                    $details = isset($month['details']) ? $month['details'] : '';
+                                    ?>
+                                    <div class="subheading"><?php echo esc_html($title); ?></div>
+                                    <div class="heading--18"><?php echo $details; ?></div>
+                                <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
                     </a>
-                </div>
-            <?php endwhile; ?>
-            <?php wp_reset_postdata(); ?>
-        <?php else : ?>
-            <p>No se encontraron historias.</p>
-        <?php endif; ?>
+                <?php endwhile; ?>
+                <?php wp_reset_postdata(); ?>
+            <?php else : ?>
+                <p>No se encontraron historias.</p>
+            <?php endif; ?>
+        </div>
+        <div class="slider-pagination">
+            <div class="seccionSliderClass__counter"></div>
+            <div class="slick-dots"></div>
+        </div>
     </div>
 </section>

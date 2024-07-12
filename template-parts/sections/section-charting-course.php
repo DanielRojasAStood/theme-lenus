@@ -6,41 +6,33 @@ $heading                = isset($group_charting_course['heading']) ? esc_html($g
 $items                  = isset($group_charting_course['items']) ? $group_charting_course['items'] : [];
 
 ?>
-<style>
-    .columnInversionPregunta li {
-        color: var(--jvm-color-text-5);
-        font-family: Source Sans Pro;
-        font-size: 18px;
-        font-weight: 400;
-        line-height: 30px;
-        letter-spacing: -0.01em;
-        text-align: left;
-    }
-</style>
-<section>
-    <div class="containerPreguntasEstrategia">
-        <?php if($subheading) : ?>
-        <span class="titleNuestraHistoria"><?php echo $subheading; ?></span>
-        <?php endif ?>
-
-        <?php if($heading) : ?>
-        <h2 class="titleContainerEquipo"><?php echo $heading; ?></h2>
-        <?php endif ?>
+<section class="sectionChartingCourse">
+    <div class="container--large">
+        <div class="sectionChartingCourse__title">
+            <?php if($subheading) : ?>
+            <p class="subheading"><?php echo $subheading; ?></p>
+            <?php endif ?>
+    
+            <?php if($heading) : ?>
+            <h2 class="heading--48 line line--blue line--center"><?php echo $heading; ?></h2>
+            <?php endif ?>
+        </div>
 
         <?php foreach ($items as $key => $item) { 
             $heading = isset($item['heading']) ? esc_html($item['heading']) : '';
             $copy    = isset($item['copy']) ? $item['copy'] : '';
         ?>
-            <div class="columnTwoPro gapFive rowInversionPregunta">
-                <div class="column columnInversionPregunta">
-                <?php if($heading) : ?>
-                    <h3 class="texInversiónPregunta"><?php echo esc_html($heading); ?></h3>
-                <?php endif ?>
-
+            <div class="sectionChartingCourse__items">
+                <div class="sectionChartingCourse__item">
+                    <?php if($heading) : ?>
+                        <h3 class="heading--32"><?php echo esc_html($heading); ?></h3>
+                    <?php endif ?>
                 </div>
-                <div class="column columnInversionPregunta">
+                <div class="sectionChartingCourse__item">
                     <?php if($copy) : ?>
-                        <?php echo $copy; ?>
+                        <div class="heading--18">
+                            <?php echo $copy; ?>
+                        </div>
                     <?php endif ?>
                 </div>
             </div>

@@ -1,41 +1,38 @@
 <?php 
 $group_principles = get_field('group_principles');
-$subheading       = isset($group_principles['subheading']) ? $group_principles['subheading'] : '';
-$heading          = isset($group_principles['heading']) ? $group_principles['heading'] : '';
-$principles       = isset($group_principles['principles']) ? $group_principles['principles'] : [];
+$subheading       = !empty($group_principles['subheading']) ? $group_principles['subheading'] : '';
+$heading          = !empty($group_principles['heading']) ? $group_principles['heading'] : '';
+$principles       = !empty($group_principles['principles']) ? $group_principles['principles'] : [];
 ?>
 
-<style>
-    .textContainerNos2 p {
-        font-family: Source Sans Pro;
-        font-size: 18px;
-        text-align: left;
-        color: var(--jvm-color-text-5);
-    }
-</style>
-<div class="containerNuestrosValores">
-    <?php if (!empty($subheading)) : ?>
-    <span class="titleNuestraHistoria"><?php echo $subheading; ?></span>
-     <?php endif; ?>
+<section class="sectionPrinciples">
+    <div class="sectionPrinciples__bckg">
+        <div class="container--large">
+            <div class="sectionPrinciples__title">
+                <?php if ($subheading) : ?>
+                <p class="subheading"><?php echo $subheading; ?></p>
+                 <?php endif; ?>
 
-    <?php if (!empty($heading)) : ?>
-    <h2 class="titleContainerValores"> <?php echo $heading; ?></h2>
-     <?php endif; ?>
-    <div class="container text-left">
-        <div class="row row-cols-2">
-            <?php foreach ($principles as $key => $item) { 
-                $principle = isset($item['principle']) ? $item['principle'] : '';
-                $copy      = isset($item['copy']) ? $item['copy'] : '';
-            ?>
-                <div class="col colOneNos">
-                    <div class="containerTitleNos">
-                        <h5 class="titleContainerNos"><?php echo esc_html($principle); ?></h5>
+                <?php if ($heading) : ?>
+                <p class="heading--48 line line--blue line--center"><?php echo $heading; ?></p>
+                 <?php endif; ?>
+            </div>
+
+            <div class="sectionPrinciples__items">
+                <?php foreach ($principles as $key => $item) { 
+                    $principle = !empty($item['principle']) ? $item['principle'] : '';
+                    $copy      = !empty($item['copy']) ? $item['copy'] : '';
+                ?>
+                    <div class="sectionPrinciples__item">
+                        <div class="sectionPrinciples__name">
+                            <h3 class="heading--25"><?php echo esc_html($principle); ?></h3>
+                        </div>
+                        <div class="sectionPrinciples__detail">
+                            <div class="heading--18"><?php echo $copy; ?></div>
+                        </div>
                     </div>
-                    <div class="containerTitleNos2">
-                        <div class="textContainerNos2"><?php echo $copy; ?></div>
-                    </div>
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
         </div>
     </div>
-</div>
+</section>

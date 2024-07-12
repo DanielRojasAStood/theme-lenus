@@ -14,33 +14,38 @@ $image_alt               = ($image_id) ? get_post_meta($image_id, '_wp_attachmen
 $image_title             = ($image_id) ? get_the_title($image_id) : '';
 
 ?>
-<section>
-    <div class="columnTwoPro containerEnfoque bgBlueSky">
-        <div class="column">
-            <img class="" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" src="<?php echo $image_src; ?>" data-src="<?php echo $image_src; ?>" srcset="<?php echo $image_srcset; ?>" data-srcset="<?php echo $image_srcset; ?>" alt="<?php echo $heading . ' - ' . $sitename; ?>" title="<?php echo $image_title; ?>">
-        </div>
-        <div class="column">
-            <?php if($heading) : ?>
-            <h2 class="titleContainerEstrategia"><?php echo $heading; ?></h2>
-            <?php endif ?>
-            <div class="columnTwoPro gapFive columnEstrategiaContainer ">
-                <?php foreach ($items as $keyItems => $item) { 
-                    $values = $item['items']; ?>
-                    <div class="column">
-                        <h4 class="textEquipoColumn"> <?php echo $item['heading']?></h4>
-                        <?php foreach ($values as $keyValue => $value) { ?>
-                            <div class="colSectionEquipoText<?php echo $keyItems == 1 ? ' colSectionEquipoTextTwo' : '' ?>">
-                                <?php if($value['heading']) : ?>
-                                <h5 class="textImpEquipo"><?php echo $value['heading']?></h5>
-                                <?php endif ?>
 
-                                <?php if($value['details']) : ?>
-                                <p class="subtextImpEquipo"><?php echo $value['details']?></p>
-                                <?php endif ?>
+<section class="sectionImageItems">
+    <div class="sectionImageItems__bckg">
+        <div class="container--large">
+            <div class="sectionImageItems__grid">
+                <div class="sectionImageItems__img">
+                    <img class="" width="<?php echo $image_width; ?>" height="<?php echo $image_height; ?>" src="<?php echo $image_src; ?>" data-src="<?php echo $image_src; ?>" srcset="<?php echo $image_srcset; ?>" data-srcset="<?php echo $image_srcset; ?>" alt="<?php echo $heading . ' - ' . $sitename; ?>" title="<?php echo $image_title; ?>">
+                </div>
+                <div class="sectionImageItems__info">
+                    <div class="sectionImageItems__title">
+                        <h2 class="heading--48 line line--blue"><?php echo $heading; ?></h2>
+                    </div>
+                    <div class="sectionImageItems__items">
+                        <?php foreach ($items as $keyItems => $item) { 
+                            $values = $item['items']; ?>
+                            <div class="sectionImageItems__item">
+                                <h3 class="heading--32"> <?php echo $item['heading']?></h3>
+                                <?php foreach ($values as $keyValue => $value) { ?>
+                                    <div class="<?php echo $keyItems == 1 ? 'orange' : 'blue' ?>">
+                                        <?php if($value['heading']) : ?>
+                                        <p class="heading--25"><?php echo $value['heading']?></p>
+                                        <?php endif ?>
+    
+                                        <?php if($value['details']) : ?>
+                                        <p class="heading--18"><?php echo $value['details']?></p>
+                                        <?php endif ?>
+                                    </div>
+                                <?php } ?>
                             </div>
                         <?php } ?>
                     </div>
-                <?php } ?>
+                </div>
             </div>
         </div>
     </div>

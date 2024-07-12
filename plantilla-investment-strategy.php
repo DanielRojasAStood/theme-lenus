@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Plantilla Página Estrategia
+Template Name: Plantilla Estrategia
 */
 get_header();
 

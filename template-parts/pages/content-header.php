@@ -1,46 +1,34 @@
-<header>
-    <div class="header-top">
-        <a> Aquí va el select</a>
+<div class="header__top">
+    <?php echo do_shortcode('[language-switcher]')?>
+</div>
+<header class="header">
+    <div class="header__logo">
+        <?php
+            if (function_exists('the_custom_logo')) {
+                the_custom_logo();
+            }
+        ?>
     </div>
-    <div class="header">
-        <div class="logo">
-            <a href="#">
-                <h1 class="logo-lenus-up"> Lenus</h1>
-                <h1 class="logo-lenus-down"> Capital Partners</h1>
-            </a>
-        </div>
-        <div class="menuLenus-d visibleDesktop">
+    <div class="header__menu">
+        <nav class="primary-menu">
             <?php
-            $args = array(
-                'menu'              => 'menu-principal',
-                'container'         => 'div',
-                'items_wrap'        => '%3$s',
-                'container_class'   => 'topnav',
-                'container_id'      => 'myTopnav',
-                'walker'            => new Custom_Nav_Walker()
-            );
-            wp_nav_menu($args);
-            ?>
-        </div>
-        <div class="textInversionistas visibleDesktop">
-            <a href="./login.php" class="textInversionistas">Inversionistas</a>
-        </div>
-    </div>
-    <div class="acordeonBio-d visibleMobile">
-        <div class="hamburger filletHamburger">
-            <div class="_layer -top"></div>
-            <div class="_layer -mid"></div>
-            <div class="_layer -bottom"></div>
-        </div>
-        <nav class="menuppal">
-            <?php
-            $args = array(
-                'menu'          => 'menu-principal',
-                'container'     => false,
-                'items_wrap'    => '<ul>%3$s</ul>'
-            );
-            wp_nav_menu($args);
-            ?>
+            wp_nav_menu(array(
+                'theme_location' => 'menu-principal',
+                'menu_id' => '',
+                'container' => 'ul',
+                'menu_class' => 'menu',
+            ));
+        ?>
         </nav>
+    </div>
+    <div class="header__account">
+        <a href="">
+            <?php 
+                get_template_part('template-parts/content', 'icono');
+                display_icon('user'); 
+            ?>
+            Inversionistas
+        </a>
+       
     </div>
 </header>

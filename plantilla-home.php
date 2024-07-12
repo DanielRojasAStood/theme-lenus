@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Plantilla Página Inicio
+Template Name: Plantilla Inicio
 */
 get_header();
 
@@ -15,11 +15,13 @@ $show_faqs             = get_field('show_faqs');
 
 <!-- INICIO CONTENIDO -->
 <main>
+
     <?php if ($show_banner) { ?>
-        <!-- BANNER -->
+        <!-- SECCION BANNER -->
         <?php get_template_part('template-parts/sections/section', 'banner')  ?>
-        <!-- FIN BANNER -->
+        <!-- FIN SECCION BANNER -->
     <?php } ?>
+    
     
     <?php if ($show_text_image_video) { ?>
         <!-- SECCION TRANSFORMANDO -->
@@ -56,6 +58,7 @@ $show_faqs             = get_field('show_faqs');
         <?php get_template_part('template-parts/sections/section', 'faqs')  ?>
         <!-- FIN PREGUNTAS FRECUENTES-->
     <?php } ?>
+
 </main>
 <!-- INICIO CONTENIDO -->
 

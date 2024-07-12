@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Plantilla Página Nosotros
+Template Name: Plantilla Nosotros
 */
 get_header();
 
