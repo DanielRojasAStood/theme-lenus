@@ -41,3 +41,36 @@ add_filter( 'acf/settings/save_json', 'my_acf_json_save_point' );
 * Eliminar las etiquetas <p>
 */
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+/* 
+* SEO
+*/
+if ( ! function_exists('legger_seo_head_scripts') ) {
+    function legger_seo_head_scripts()
+    {
+        $homepage           = get_option('page_on_front');
+        $queried_object     = get_queried_object();
+        $seo_keywords       = ($queried_object instanceof WP_Term) ? get_field('seo_keywords', $queried_object->taxonomy . '_' . $queried_object->term_id) : get_field('seo_keywords');
+        $seo_description    = ($queried_object instanceof WP_Term) ? get_field('seo_description', $queried_object->taxonomy . '_' . $queried_object->term_id) : get_field('seo_description');
+        $og                 = ($queried_object instanceof WP_Term) ? get_field('seo_opengraph', $queried_object->taxonomy . '_' . $queried_object->term_id) : get_field('seo_opengraph');
+        $og_image           = (!empty($og['image'])) ? $og['image']['sizes']['large'] : '';
+        $og_description     = (!empty($og['description'])) ? $og['description'] : $seo_description ;
+        $seo_author         = get_field('seo_author', $homepage) ;
+        $seo_publisher      = get_field('seo_publisher', $homepage) ;
+        ?>
+            <meta name="author" content="<?php echo esc_attr($seo_author) ?>" />
+            <meta name="publisher" content="<?php echo esc_attr($seo_publisher) ?>" />
+            <?php if (!empty($seo_description)) { ?>
+                <meta name="description" content="<?php echo esc_attr($seo_description) ?>" />
+            <?php } ?>
+            <?php if (!empty($seo_keywords)) { ?>
+                <meta name="keywords" content="<?php echo esc_attr($seo_keywords) ?>" />
+            <?php } ?>
+            <?php if (!empty($og)) { ?>
+                <meta name="og:image" content="<?php echo esc_url($og_image) ?>">
+                <meta name="og:description" content="<?php echo esc_attr($og_description) ?>">
+            <?php } ?>
+        <?php 
+    }
+}
+add_action('wp_head', 'legger_seo_head_scripts');

@@ -1,9 +1,9 @@
 <?php 
 $sitename               = get_bloginfo('name');
 $group_charting_course  = get_field('group_charting_course');
-$subheading             = isset($group_charting_course['subheading']) ? esc_html($group_charting_course['subheading']) : '';
-$heading                = isset($group_charting_course['heading']) ? esc_html($group_charting_course['heading']) : '';
-$items                  = isset($group_charting_course['items']) ? $group_charting_course['items'] : [];
+$subheading             = !empty($group_charting_course['subheading']) ? esc_html($group_charting_course['subheading']) : '';
+$heading                = !empty($group_charting_course['heading']) ? esc_html($group_charting_course['heading']) : '';
+$items                  = !empty($group_charting_course['items']) ? $group_charting_course['items'] : [];
 
 ?>
 <section class="sectionChartingCourse">
@@ -19,8 +19,8 @@ $items                  = isset($group_charting_course['items']) ? $group_charti
         </div>
 
         <?php foreach ($items as $key => $item) { 
-            $heading = isset($item['heading']) ? esc_html($item['heading']) : '';
-            $copy    = isset($item['copy']) ? $item['copy'] : '';
+            $heading = !empty($item['heading']) ? esc_html($item['heading']) : '';
+            $copy    = !empty($item['copy']) ? $item['copy'] : '';
         ?>
             <div class="sectionChartingCourse__items">
                 <div class="sectionChartingCourse__item">

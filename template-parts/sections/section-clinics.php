@@ -9,10 +9,9 @@ $copy           = isset($group_clinics['copy']) && !empty($group_clinics['copy']
 
 $args = array(
     'post_type' => 'clinics',
-    'posts_per_page' => 10,
+    'posts_per_page' => -1,
 );
 $clinics_query = new WP_Query($args);
-$totalpost = $clinics_query->found_posts; 
 ?>
 
 <section class="sectionSliderSedes">
@@ -21,47 +20,53 @@ $totalpost = $clinics_query->found_posts;
             <div class="container--large">
                 <div class="sectionSliderSedes__title">
                     <?php if($title) :?>
-                    <h2 class="heading--48 line line--blue line--center"><?php echo $title; ?></h2>
+                        <h2 class="heading--48 line line--blue line--center"><?php echo $title; ?></h2>
                     <?php endif; ?>
                     
                     <?php if($copy) :?>
-                    <p class="heading--18"><?php echo $copy; ?></p>
+                        <p class="heading--18"><?php echo $copy; ?></p>
                     <?php endif; ?>
                 </div>
             </div>
             <div class="sectionSliderSedes__container">
                 <div class="slickSliderSedes">
-                    <?php if ($clinics_query->have_posts()) :
-                        while ($clinics_query->have_posts()) : $clinics_query->the_post(); 
-                        $totalpost = $clinics_query->found_posts; 
-                        $title = get_the_title();
-                        $group_additional_information = get_field('group_additional_information');
-                        $office = $group_additional_information['office'];
-                        $location = $group_additional_information['location'];
-        
-                        $img_id         = get_post_thumbnail_id($id);
-                        $img_src        = wp_get_attachment_image_url($img_id, 'custom-size');
-                        $img_srcset     = wp_get_attachment_image_srcset($img_id, 'custom-size');
-                        $image          = wp_get_attachment_image_src( get_post_thumbnail_id($id), "full" );
-                        ?>
-                        <div>
-                            <a href="#">
-                                <div class="sectionSliderSedes__card">
-                                    <div class="sectionSliderSedes__img">
-                                        <img class="img-fluid" src="<?php echo $img_src ?>" data-src="<?php echo $img_src ?>" srcset="<?php echo $img_srcset ?>" data-srcset="<?php echo $img_srcset ?>" alt="<?php echo $title . ' - ' . $sitename; ?> " title="<?php echo $title ?>" width="<?php echo $image[1]; ?>"  height="<?php echo $image[2]; ?>">
-                                    </div>
-                                    <div class="sectionSliderSedes__info">
-                                        <h3 class="heading--25"><?php echo $title ?></h3>
-                                        <p class="heading--25 sede"> <?php echo $office ?></p>
-                                        <p class="heading--18 city"> <?php echo $location ?></p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <?php endwhile;
-                            wp_reset_postdata();
-                            else : ?>
-                            <p><?php _e('No se encontraron clínicas.', 'textdomain'); ?></p>
+                    <?php if ($clinics_query->have_posts()): ?>
+                        <?php while ($clinics_query->have_posts()): ?>
+                            <?php $clinics_query->the_post(); ?>
+                            <?php $grupo_sedes = get_field('grupo_sedes'); ?>
+
+                            <?php if (is_array($grupo_sedes) && isset($grupo_sedes['sedes'])): ?>
+                                <?php $sedes = $grupo_sedes['sedes']; ?>
+
+                                <?php if (is_array($sedes)): ?>
+                                    <?php foreach ($sedes as $sede): ?>
+                                        <?php 
+                                        $image_id      = !empty($sede["imagen"]['ID']) ? $sede["imagen"]['ID'] : '';
+                                        $image_src     = wp_get_attachment_image_url($image_id, 'custom-size');
+                                        $image_srcset  = wp_get_attachment_image_srcset($image_id, 'custom-size');
+                                        $image_info    = wp_get_attachment_image_src($image_id, 'full');
+                                        $image_width   = ($image_info) ? $image_info[1] : '';
+                                        $image_height  = ($image_info) ? $image_info[2] : '';
+                                        $image_alt     = ($image_id) ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : ''; 
+                                        $image_title   = ($image_id) ? get_the_title($image_id) : '';
+                                        ?>
+                                        <a href="">
+                                            <div class="sectionSliderSedes__card">
+                                                <div class="sectionSliderSedes__img">
+                                                <img width="<?php echo $image_width ?>" height="<?php echo $image_height ?>" src="<?php echo $image_src ?>" data-src="<?php echo $image_src ?>" srcset="<?php echo $image_srcset ?>" data-srcset="<?php echo $image_srcset ?>" alt="<?php echo $sede['sede'] . ' - ' . $sitename; ?> " title="<?php echo $sede['sede'] ?>">
+                                                </div>
+                                                <div class="sectionSliderSedes__info">
+                                                    <h3 class="heading--25"><?php the_title(); ?></h3>
+                                                    <p class="heading--25 sede"><?php echo $sede['sede']; ?></p>
+                                                    <p class="heading--18 city"><?php echo $sede['ciudad']; ?></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        <?php endwhile; ?>
+                        <?php wp_reset_postdata(); ?>
                     <?php endif; ?>
                 </div>
                 <div class="slider-pagination">

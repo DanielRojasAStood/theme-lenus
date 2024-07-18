@@ -394,4 +394,21 @@ jQuery(document).ready(function ($) {
   $sliderStrategy.on("afterChange", function (event, slick, currentSlide) {
     updateCounter($counterStrategy, currentSlide + 1, totalSlidesStrategy);
   });
+
+  $(".tab-button").click(function () {
+    var tabId = $(this).data("tab");
+
+    $(".tab-button").removeClass("active");
+    $(this).addClass("active");
+
+    $(".tab-content").removeClass("active");
+    $("#" + tabId).addClass("active");
+
+    $('.slickSliderSedes').slick('setPosition');
+  });
+
+  $("#open-menu-mobile").on("click", function() {
+    $(".sectionHeaderMobile, body").toggleClass("active");
+  })
+
 });

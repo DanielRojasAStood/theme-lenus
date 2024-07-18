@@ -1,7 +1,8 @@
 <?php
-/*
+/* 
 Template Name: Plantilla Inicio
 */
+
 get_header();
 
 $show_banner           = get_field('show_banner');

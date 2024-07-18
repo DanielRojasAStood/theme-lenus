@@ -19,7 +19,7 @@ $image_title              = ($image_id) ? get_the_title($image_id) : '';
             <div class="sectionTextImage__grid">
                 <div class="sectionTextImage__title">
                     <?php if ($heading): ?>
-                        <h1 class="heading--64 color--fff line line--white"><?php echo $heading; ?></h1>
+                        <h1 class="heading--64 color--fff line line--white"><?php echo esc_html($heading) ?></h1>
                     <?php endif; ?>
                 </div>
                 <div class="sectionTextImage__img">

@@ -46,11 +46,21 @@ $social             = $group_footer['group_newsletter']['social'];
                 <h2 class="heading--32 color--fff">Únete a nuestro Newsletter </h2>
                 <?php echo do_shortcode('[contact-form-7 id="8bb9297" title="Newsletter"]')?>
                 <h2 class="heading--32 color--fff">Síguenos en:</h2>
-                <div>
-                    <?php 
-                        get_template_part('template-parts/content', 'icono');
-                        display_icon('youtube'); 
-                    ?>
+                <div class="footer-menus__social">
+                    <a href="#" target="_blank">
+                        <?php 
+                            get_template_part('template-parts/content', 'icono');
+                            display_icon('youtube'); 
+                        ?>
+                        <span>Youtube</span>
+                    </a>
+                    <a href="#" target="_blank">
+                        <?php 
+                            get_template_part('template-parts/content', 'icono');
+                            display_icon('linkedin'); 
+                        ?>
+                        <span>LinkedIn</span>
+                    </a>
                 </div>
             </div>
         </div>

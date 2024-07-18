@@ -66,35 +66,35 @@ function my_custom_post_stories() {
 add_action('init', 'my_custom_post_stories');
 
 // 3 - Sedes
-function my_custom_post_sedes() {
-  $labels = array(
-      'name'               => _x('Sedes', 'nombre general del tipo de entrada', 'textdomain'),
-      'singular_name'      => _x('Sede', 'nombre singular del tipo de entrada', 'textdomain'),
-      'add_new'            => _x('Agregar nueva', 'sede', 'textdomain'),
-      'add_new_item'       => __('Agregar nueva Sede', 'textdomain'),
-      'edit_item'          => __('Editar Sede', 'textdomain'),
-      'new_item'           => __('Nueva Sede', 'textdomain'),
-      'all_items'          => __('Todas las Sedes', 'textdomain'),
-      'view_item'          => __('Ver Sede', 'textdomain'),
-      'search_items'       => __('Buscar Sedes', 'textdomain'),
-      'not_found'          => __('No se encontraron Sedes', 'textdomain'),
-      'not_found_in_trash' => __('No se encontraron Sedes en la papelera', 'textdomain'),
-      'parent_item_colon'  => '',
-      'menu_name'          => 'Sedes'
-  );
-  $args = array(
-      'labels'        => $labels,
-      'description'   => 'Contiene nuestras sedes y datos específicos de las mismas',
-      'public'        => true,
-      'menu_position' => 6,
-      'menu_icon'     => 'dashicons-admin-multisite',
-      'supports'      => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
-      'has_archive'   => true,
-      'taxonomies'    => array('category')  // Usando la taxonomía personalizada
-  );
-  register_post_type('sedes', $args); 
-}
-add_action('init', 'my_custom_post_sedes');
+// function my_custom_post_sedes() {
+//   $labels = array(
+//       'name'               => _x('Sedes', 'nombre general del tipo de entrada', 'textdomain'),
+//       'singular_name'      => _x('Sede', 'nombre singular del tipo de entrada', 'textdomain'),
+//       'add_new'            => _x('Agregar nueva', 'sede', 'textdomain'),
+//       'add_new_item'       => __('Agregar nueva Sede', 'textdomain'),
+//       'edit_item'          => __('Editar Sede', 'textdomain'),
+//       'new_item'           => __('Nueva Sede', 'textdomain'),
+//       'all_items'          => __('Todas las Sedes', 'textdomain'),
+//       'view_item'          => __('Ver Sede', 'textdomain'),
+//       'search_items'       => __('Buscar Sedes', 'textdomain'),
+//       'not_found'          => __('No se encontraron Sedes', 'textdomain'),
+//       'not_found_in_trash' => __('No se encontraron Sedes en la papelera', 'textdomain'),
+//       'parent_item_colon'  => '',
+//       'menu_name'          => 'Sedes'
+//   );
+//   $args = array(
+//       'labels'        => $labels,
+//       'description'   => 'Contiene nuestras sedes y datos específicos de las mismas',
+//       'public'        => true,
+//       'menu_position' => 6,
+//       'menu_icon'     => 'dashicons-admin-multisite',
+//       'supports'      => array('title', 'editor', 'thumbnail', 'excerpt', 'comments'),
+//       'has_archive'   => true,
+//       'taxonomies'    => array('category')  // Usando la taxonomía personalizada
+//   );
+//   register_post_type('sedes', $args); 
+// }
+// add_action('init', 'my_custom_post_sedes');
 
 
 
