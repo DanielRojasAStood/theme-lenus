@@ -627,8 +627,20 @@ svg {
 
 /* sectionTextImagesVideo */
 .sectionTextImagesVideo__bckg {
-  padding: 57px 0;
+  position: relative;
+  padding: 57px 0 0;
   background-color: var(--082840);
+}
+
+.sectionTextImagesVideo__bckg:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: rgb(245 245 245);
 }
 
 .sectionTextImagesVideo__grid {
@@ -638,6 +650,16 @@ svg {
 }
 
 @media only screen and (min-width: 1024px) {
+
+  .sectionTextImagesVideo__bckg {
+    padding: 57px 0;
+    background-color: var(--082840);
+  }
+
+  .sectionTextImagesVideo__bckg:before {
+    display: none;
+  }
+
   .sectionTextImagesVideo__grid {
     grid-template-columns: 1fr 1fr;
     padding: 0 80px;
@@ -666,14 +688,12 @@ svg {
 
 .sectionTextImagesVideo__img {
   position: relative;
-  height: 70px;
   text-align: center;
 }
 
 .sectionTextImagesVideo__img.active img {
   position: relative;
   width: 100%;
-  height: 217px;
   object-fit: cover;
   border-radius: 0 0 60px 0;
   opacity: 1;
@@ -687,12 +707,12 @@ svg {
 
 .sectionTextImagesVideo__img button {
   position: absolute;
-  top: 80%;
+  top: 50%;
   left: 50%;
-  width: 100px;
-  height: 100px;
-  margin-top: -50px;
-  margin-left: -50px;
+  width: 68px;
+  height: 68px;
+  margin-top: -34px;
+  margin-left: -34px;
   padding: 0;
   border: 0;
   opacity: 1;
@@ -710,17 +730,17 @@ svg {
   position: relative;
   top: 0;
   left: 0;
-  width: 99px;
-  height: 99px;
+  width: 67px;
+  height: 67px;
   border-radius: 0;
 }
 
 .sectionTextImagesVideo__video {
   position: absolute;
   left: 0;
+  bottom: 0;
   width: 100%;
   height: 317px;
-  bottom: -110px;
   opacity: 0;
   visibility: hidden;
 }
@@ -741,11 +761,35 @@ svg {
     bottom: -110px;
     height: 317px;
   }
+
+  .sectionTextImagesVideo__img button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+  }
+  
+  .sectionTextImagesVideo__img button img {
+    width: 99px;
+    height: 99px;
+  }
+  
+  .sectionTextImagesVideo__video {
+    position: absolute;
+    left: 0;
+    bottom: -110px;
+    width: 100%;
+    height: 317px;
+  }
+  
 }
 
 /* sectionSliderSedes */
 .sectionSliderSedes__bckg {
-  padding: 130px 0 40px;
+  padding: 60px 0 40px;
   background-color: var(--gray);
 }
 
