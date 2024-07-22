@@ -35,6 +35,10 @@ $image_title   = ($image_id) ? get_the_title($image_id) : '';
                 </div>
                 <div class="sectionTextImagesVideo__img">
                     <img width="<?php echo $image_width ?>" height="<?php echo $image_height ?>" src="<?php echo $image_src ?>" data-src="<?php echo $image_src ?>" srcset="<?php echo $image_srcset ?>" data-srcset="<?php echo $image_srcset ?>" alt="<?php echo $heading . ' - ' . $sitename; ?> " title="<?php echo $heading ?>">
+                    <button type="button" id="playVideo"><img src="<?php echo IMG_BASE . 'ico-play.svg'; ?>" alt=""></button>
+                    <video controls="false" class="sectionTextImagesVideo__video" src="<?php echo IMG_BASE . 'video.mp4'; ?>" width="100%" height="317" controls>
+                        <p>Su navegador no soporta vídeos HTML5.</p>
+                    </video>
                 </div>
             </div>
         </div>

@@ -411,4 +411,8 @@ jQuery(document).ready(function ($) {
     $(".sectionHeaderMobile, body").toggleClass("active");
   })
 
+  $("#playVideo").on('click', function(){
+    $('.sectionTextImagesVideo__img').addClass("active")
+  })
+
 });

@@ -670,12 +670,64 @@ svg {
   text-align: center;
 }
 
-.sectionTextImagesVideo__img img {
+.sectionTextImagesVideo__img.active img {
   position: relative;
   width: 100%;
   height: 217px;
   object-fit: cover;
   border-radius: 0 0 60px 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.sectionTextImagesVideo__img.active img {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sectionTextImagesVideo__img button {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  margin-left: -50px;
+  padding: 0;
+  border: 0;
+  opacity: 1;
+  opacity: visible;
+  background-color: transparent;
+  z-index: 1
+}
+
+.sectionTextImagesVideo__img.active button {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sectionTextImagesVideo__img button img {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 99px;
+  height: 99px;
+  border-radius: 0;
+}
+
+.sectionTextImagesVideo__video {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 317px;
+  bottom: -110px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.active .sectionTextImagesVideo__video {
+  opacity: 1;
+  visibility: visible;
 }
 
 @media only screen and (min-width: 1024px) {
