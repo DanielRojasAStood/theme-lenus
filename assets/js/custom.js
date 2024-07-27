@@ -170,6 +170,7 @@ jQuery(document).ready(function ($) {
     infinite: true,
     speed: 600,
     slidesToShow: 4,
+    slidesToScroll: 1,
     adaptiveHeight: false,
     autoplay: true,
     autoplaySpeed: 5000,

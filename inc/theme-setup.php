@@ -74,3 +74,13 @@ if ( ! function_exists('legger_seo_head_scripts') ) {
     }
 }
 add_action('wp_head', 'legger_seo_head_scripts');
+
+function agregar_clase_current_a_menu($classes, $item, $args) {
+    // Verifica si el elemento del menú es el elemento actual
+    if (in_array('current-menu-item', $item->classes)) {
+        $classes[] = 'current';
+    }
+
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'agregar_clase_current_a_menu', 10, 3);

@@ -183,6 +183,7 @@ a:hover {
   --22: 22px;
   --24: 24px;
   --25: 25px;
+  --28: 28px;
   --32: 32px;
   --36: 36px;
   --40: 40px;
@@ -383,6 +384,7 @@ svg {
   line-height: 22px;
   border-radius: 0px 18px;
   text-decoration: none;
+  transition: all 0.4s ease;
   cursor: pointer;
 }
 
@@ -391,7 +393,8 @@ svg {
 }
 
 .button.button--white:hover {
-  color: var(--2C71A5);
+  color: var(--FFF);
+  background-color: var(--2C71A5);
 }
 
 .button--center {
@@ -410,7 +413,7 @@ svg {
 
 @media only screen and (min-width: 1024px) {
   .container--large {
-    max-width: 1200px;
+    max-width: 1240px;
   }
 
   .button {
@@ -445,6 +448,10 @@ svg {
   font-size: 8px;
   color: var(--0B2F4B);
   opacity: 0.75;
+}
+
+.slick-dots li {
+  margin: 0;
 }
 
 .slick-dots li.slick-active button:before {
@@ -623,6 +630,10 @@ svg {
   .sectionSliderBannerInfo .slick-dots {
     text-align: left;
   }
+
+  .slick-dots li {
+    margin: 0 5px;
+  }
 }
 
 /* sectionTextImagesVideo */
@@ -650,7 +661,6 @@ svg {
 }
 
 @media only screen and (min-width: 1024px) {
-
   .sectionTextImagesVideo__bckg {
     padding: 57px 0;
     background-color: var(--082840);
@@ -718,7 +728,7 @@ svg {
   opacity: 1;
   opacity: visible;
   background-color: transparent;
-  z-index: 1
+  z-index: 1;
 }
 
 .sectionTextImagesVideo__img.active button {
@@ -771,12 +781,12 @@ svg {
     margin-top: -50px;
     margin-left: -50px;
   }
-  
+
   .sectionTextImagesVideo__img button img {
     width: 99px;
     height: 99px;
   }
-  
+
   .sectionTextImagesVideo__video {
     position: absolute;
     left: 0;
@@ -784,7 +794,6 @@ svg {
     width: 100%;
     height: 317px;
   }
-  
 }
 
 /* sectionSliderSedes */
@@ -812,6 +821,8 @@ svg {
 }
 
 .sectionSliderSedes__padding {
+  max-width: 1220px;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -826,7 +837,7 @@ svg {
   }
 
   .sectionSliderSedes__padding {
-    padding: 0 60px;
+    padding: 0;
   }
 }
 
@@ -877,10 +888,13 @@ svg {
 
 .sectionSliderSedes__img {
   position: relative;
+  display: flex;
+  height: 195px;
   overflow: hidden;
 }
 
 .sectionSliderSedes__img img {
+  object-fit: cover;
   transition: transform 0.3s ease-out;
 }
 
@@ -889,6 +903,11 @@ svg {
   border-radius: 0px 0px 30px 0px;
 }
 
+@media only screen and (min-width: 1024px) {
+  .sectionSliderSedes__img {
+    height: auto;
+  }
+}
 /* sectionCommitment */
 
 .sectionCommitment {
@@ -1133,6 +1152,7 @@ svg {
 }
 
 .sectionSliderNews__info .heading--19 {
+  min-height: 72px;
   letter-spacing: -0.19px;
 }
 
@@ -1197,6 +1217,10 @@ svg {
   background-color: rgba(73, 146, 202, 0.1);
 }
 
+.sectionFaqs .accordion-button::after {
+  display: none;
+}
+
 .sectionFaqs__title {
   padding-bottom: 18px;
   text-align: center;
@@ -1217,8 +1241,14 @@ svg {
   line-height: 24px;
   letter-spacing: -0.18px;
   border: 0;
+  color: var(--0B2F4B) !important;
   border-bottom: 1px solid var(--0B2F4B);
-  background-color: transparent;
+  background-color: transparent !important;
+}
+
+.sectionFaqs__item .accordion-button:focus {
+  border-color: var(--0B2F4B);
+  box-shadow: none;
 }
 
 .sectionFaqs__item button svg {
@@ -1276,6 +1306,10 @@ svg {
   margin: 0 auto;
   padding: 0 24px;
   text-align: center;
+}
+
+.sectionTeam__title .heading--48 {
+  margin-bottom: 24px;
 }
 
 .sectionTeam__title img {
@@ -1404,10 +1438,12 @@ svg {
 }
 
 .sectionPrinciples__title {
+  display: grid;
+  row-gap: 24px;
   width: 100%;
   margin: 0 auto;
   padding: 0 0 40px;
-  text-align: center;
+  text-align: left;
 }
 
 .sectionPrinciples__items {
@@ -1444,6 +1480,7 @@ svg {
   .sectionPrinciples__title {
     max-width: 580px;
     padding: 0 0 60px;
+    text-align: center;
   }
 
   .sectionPrinciples__items {
@@ -1483,7 +1520,11 @@ svg {
   row-gap: 24px;
   padding: 40px 0;
   width: 100%;
-  text-align: center;
+}
+
+.sectionContacto__info .line::before {
+  left: 0;
+  margin: 0;
 }
 
 .sectionContacto__img {
@@ -1505,7 +1546,6 @@ svg {
   .sectionContacto__info {
     padding: 56px 0;
     width: 56%;
-    text-align: left;
   }
 
   .sectionContacto__img {
@@ -1912,7 +1952,14 @@ svg {
 }
 
 .sectionManagement__copy p {
+  font-size: var(--18);
+  line-height: 24px;
   margin-bottom: 12px;
+}
+
+.sectionManagement__copy p:nth-child(1):first-letter {
+  font-family: "Gilda Display";
+  font-size: var(--28);
 }
 
 .sectionManagement__copy p:last-child {
@@ -1944,7 +1991,7 @@ svg {
   }
 
   .sectionManagement__copy {
-    padding: 0 153px 0 0;
+    padding: 0 120px 0 0;
   }
 
   .sectionManagement__img {
@@ -1954,7 +2001,7 @@ svg {
 
   .sectionManagement__img img {
     position: absolute;
-    bottom: -126px;
+    bottom: -108px;
     height: 380px;
   }
 }
@@ -1991,6 +2038,7 @@ svg {
 }
 
 .header__menu ul a {
+  position: relative;
   color: var(--0B2F4B);
   font-size: var(--13);
   font-style: normal;
@@ -1999,8 +2047,27 @@ svg {
   text-decoration: none;
 }
 
+.header__menu ul a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--0B2F4B);
+  transition: width 0.4s ease;
+}
+
+.header__menu ul a:hover:before,
+.header__menu ul a:focus:before,
+.header__menu ul a:active:before,
+.header__menu ul .current a:before {
+  width: 100%;
+}
+
 .header__logo {
-  width: 120px;
+  width: 170px;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -2051,7 +2118,7 @@ svg {
   overflow: scroll;
   transform: translate3d(100%, 0, 0);
   z-index: 2;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
 }
 
 .sectionHeaderMobile.active {
@@ -2099,7 +2166,7 @@ svg {
   border-left: 1px solid;
 }
 
-.sectionHeaderMobile ul .current-menu-item a{
+.sectionHeaderMobile ul .current-menu-item a {
   color: var(--0B2F4B);
 }
 
@@ -2131,9 +2198,9 @@ svg {
   background-color: var(--0B2F4B);
 }
 
-.sectionHeaderMobile__social .heading--14{
+.sectionHeaderMobile__social .heading--14 {
   text-align: center;
-  letter-spacing: -0.14px
+  letter-spacing: -0.14px;
 }
 
 .sectionHeaderMobile__social a {
@@ -2148,8 +2215,8 @@ svg {
   padding-bottom: 24px;
 }
 
-.sectionHeaderMobile__social a path + path{
-  color: var(--0B2F4B)
+.sectionHeaderMobile__social a path + path {
+  color: var(--0B2F4B);
 }
 
 .sectionHeaderMobile__items {
@@ -2280,6 +2347,7 @@ svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .other-posts {
@@ -2325,6 +2393,12 @@ svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.other-posts .sectionBlogArticles__img:hover img,
+.first-post .sectionBlogArticles__img:hover img {
+  transform: scale(1.1);
 }
 
 .sectionBlogArticles__article:hover span::before {
@@ -2337,8 +2411,7 @@ svg {
 }
 
 @media only screen and (min-width: 1024px) {
-
-  .header__account { 
+  .header__account {
     display: flex;
     column-gap: 15px;
   }
@@ -2449,7 +2522,11 @@ svg {
 
 .sectionInternaBlog__container {
   width: 100%;
-  padding: 30px 24px 60px;
+  padding: 30px 24px 40px;
+}
+
+.sectionInternaBlog__container img {
+  width: 100%;
 }
 
 .sectionInternaBlog__container .heading--32 {
@@ -2521,11 +2598,15 @@ p.sectionInternaBlog__fecha {
   text-decoration: none;
 }
 
+.sectionInternaBlog__social a svg {
+  color: #0b2f4b;
+}
+
 @media only screen and (min-width: 1024px) {
   .sectionInternaBlog__container {
     max-width: 770px;
     margin: 0 auto;
-    padding: 40px 0 0;
+    padding: 40px 0 70px;
   }
 
   .sectionInternaBlog__social {
@@ -2591,7 +2672,40 @@ p.sectionInternaBlog__fecha {
 
 .footer-menus__mapa .heading--18,
 .footer-menus__contacto .heading--18 {
+  display: block;
   letter-spacing: -0.18px;
+  color: var(--FFF);
+  text-decoration: none;
+}
+
+.footer-menus__contacto .heading--18 {
+  margin-bottom: 12px;
+}
+
+a.footer-menus__link {
+  position: relative;
+  display: inline-block;
+  width: max-content;
+  color: var(--FFF);
+  text-decoration: none;
+}
+
+.footer-menus__link:before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  color: var(--FFF);
+  background: var(--FFF);
+  transition: width 0.4s ease;
+  z-index: 1;
+}
+
+.footer-menus__link:hover:before {
+  width: 100%;
 }
 
 .footer-menus__contacto .heading--14 {
@@ -2629,8 +2743,9 @@ p.sectionInternaBlog__fecha {
 .form-newsletter {
   position: relative;
   display: flex;
+  flex-direction: column;
+  row-gap: 24px;
   align-items: center;
-  height: 48px;
   margin: 24px 0 30px;
 }
 
@@ -2645,6 +2760,7 @@ p.sectionInternaBlog__fecha {
 .form-newsletter input[type="submit"] {
   background: var(--F5F5F5);
   padding: 0 38px;
+  width: 100%;
   height: 48px;
   border-radius: 0px 18px 0px 0px;
   border: 1px solid var(--FFF);
@@ -2728,8 +2844,17 @@ p.sectionInternaBlog__fecha {
     order: 3;
   }
 
+  .form-newsletter input[type="submit"] {
+    width: auto;
+  }
+
   .footer-menus__social {
     justify-content: flex-start;
+  }
+
+  .form-newsletter {
+    flex-direction: row;
+    height: 48px;
   }
 }
 
@@ -3216,7 +3341,7 @@ input[type="radio"]:checked + span:before {
 
 @media only screen and (min-width: 1024px) {
   .pageLenusHealth .sectionSliderSedes__bckg {
-    padding: 70px 0 60px 40px;
+    padding: 70px 92px 60px;
   }
 
   .sectionSedes__tabs-info {
@@ -3275,4 +3400,31 @@ input[type="radio"]:checked + span:before {
   .sectionSedesDetails__grid {
     column-gap: 90px;
   }
+}
+
+.accordion-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-icon {
+  font-size: 1.5rem;
+  transition: opacity 0.3s;
+}
+
+.plus-circle {
+  opacity: 1;
+}
+
+.minus-circle {
+  opacity: 0;
+}
+
+.accordion-button:not(.collapsed) .plus-circle {
+  opacity: 0;
+}
+
+.accordion-button:not(.collapsed) .minus-circle {
+  opacity: 1;
 }
