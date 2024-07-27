@@ -413,7 +413,18 @@ jQuery(document).ready(function ($) {
   })
 
   $("#playVideo").on('click', function(){
-    $('.sectionTextImagesVideo__img').addClass("active")
+    $('.sectionModal').fadeIn();
+  })
+
+  $(".sectionModal__overlay").on("click", function(e) {
+    const target = e.target;
+    if ($(target).is('.sectionModal__overlay')) {
+      $('.sectionModal').fadeOut();
+    }
+  })
+
+  $(".sectionModal__close").on("click", function(e) {
+    $('.sectionModal').fadeOut();
   })
 
 });

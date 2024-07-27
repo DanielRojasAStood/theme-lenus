@@ -42,10 +42,4 @@ $image_title   = ($image_id) ? get_the_title($image_id) : '';
     </div>
 </section>
 
-<!-- <section class="sectionModal">
-    <div class="sectionModal__body">
-    <video controls="false" class="sectionTextImagesVideo__video" src="<?php echo IMG_BASE . 'video.mp4'; ?>" width="100%" height="317" controls>
-                        <p>Su navegador no soporta vídeos HTML5.</p>
-                    </video>
-    </div>
-</section> -->
+<?php get_template_part('template-parts/sections/section', 'modal')  ?>
