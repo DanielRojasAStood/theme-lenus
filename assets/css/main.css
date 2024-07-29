@@ -1906,7 +1906,8 @@ svg {
 }
 
 .page-template-plantilla-investment-strategy .button:hover {
-  color: var(--FFF);
+  color: var(--2C71A5);
+  background-color: var(--FFF);
 }
 
 @media only screen and (min-width: 1024px) {
@@ -2468,10 +2469,10 @@ svg {
 }
 
 .sectionBlogTabCategories button {
-  position: relative;
-  padding: 0;
-  color: var(--0B2F4B);
   font-family: "Source Sans Pro";
+  position: relative;
+  padding: 0 12px;
+  color: var(--0B2F4B);
   font-size: var(--18);
   font-style: normal;
   font-weight: 600;
