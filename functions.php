@@ -55,6 +55,7 @@ function legger_menus()
 {
     register_nav_menus(array(
         'menu-principal' => 'Menu Principal',
+        'menu-idioma' => 'Menu Idioma',
     ));
 }
 add_action('init', 'legger_menus');

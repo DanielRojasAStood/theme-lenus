@@ -2000,11 +2000,28 @@ svg {
 
 /* Header */
 .header__top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   width: 100%;
   height: 30px;
   padding: 0 34px;
   text-align: right;
   background-color: var(--0B2F4B);
+}
+
+.header__top .trp-ls-language-name {
+  font-family: "Source Sans Pro";
+  color: var(--FFF);
+  font-size: var(--14);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 18px;
+  letter-spacing: 0.14px;
+}
+
+.header__top a {
+  text-decoration: none;
 }
 
 .header {

@@ -1,5 +1,12 @@
 <div class="header__top">
-    <?php echo do_shortcode('[language-switcher]')?>
+    <?php
+        wp_nav_menu(array(
+            'theme_location' => 'menu-idioma',
+            'menu_id' => '',
+            'container' => 'ul',
+            'menu_class' => 'menu',
+        ));
+    ?>
 </div>
 <header class="header">
     <div class="header__logo">
@@ -12,13 +19,13 @@
     <div class="header__menu">
         <nav class="primary-menu">
             <?php
-            wp_nav_menu(array(
-                'theme_location' => 'menu-principal',
-                'menu_id' => '',
-                'container' => 'ul',
-                'menu_class' => 'menu',
-            ));
-        ?>
+                wp_nav_menu(array(
+                    'theme_location' => 'menu-principal',
+                    'menu_id' => '',
+                    'container' => 'ul',
+                    'menu_class' => 'menu',
+                ));
+            ?>
         </nav>
     </div>
     <div class="header__account">
