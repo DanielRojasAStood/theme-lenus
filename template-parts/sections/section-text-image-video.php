@@ -14,6 +14,8 @@ $image_width   = ($image_info) ? $image_info[1] : '';
 $image_height  = ($image_info) ? $image_info[2] : '';
 $image_alt     = ($image_id) ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : ''; 
 $image_title   = ($image_id) ? get_the_title($image_id) : '';
+
+$video         = !empty($group_text_image_video['video']) ? $group_text_image_video['video'] : '';
 ?>
 
 <section class="sectionTextImagesVideo">
@@ -35,7 +37,9 @@ $image_title   = ($image_id) ? get_the_title($image_id) : '';
                 </div>
                 <div class="sectionTextImagesVideo__img">
                     <img width="<?php echo $image_width ?>" height="<?php echo $image_height ?>" src="<?php echo $image_src ?>" data-src="<?php echo $image_src ?>" srcset="<?php echo $image_srcset ?>" data-srcset="<?php echo $image_srcset ?>" alt="<?php echo $heading . ' - ' . $sitename; ?> " title="<?php echo $heading ?>">
+                    <?php if($video) : ?>
                     <button type="button" id="playVideo"><img src="<?php echo IMG_BASE . 'ico-play.svg'; ?>" alt=""></button>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

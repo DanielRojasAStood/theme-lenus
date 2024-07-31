@@ -1,3 +1,7 @@
+<?php 
+$group_text_image_video = get_field('group_text_image_video');
+$video                  = !empty($group_text_image_video['video']) ? $group_text_image_video['video'] : '';
+?>
 <section class="sectionModal" style="display: none">
     <div class="sectionModal__overlay">
         <div class="sectionModal__content">
@@ -8,9 +12,7 @@
                 ?>
             </button>
             <div class="container--large">
-                <video controls="false" class="sectionTextImagesVideo__video" src="<?php echo IMG_BASE . 'video.mp4'; ?>" width="100%" height="317" controls>
-                    <p>Su navegador no soporta vídeos HTML5.</p>
-                </video>
+                <?php echo $video; ?>
             </div>
         </div>
     </div>

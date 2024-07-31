@@ -221,15 +221,25 @@ $clinics_query = new WP_Query($args);
                                                     $image_alt     = ($image_id) ? get_post_meta($image_id, '_wp_attachment_image_alt', true) : ''; 
                                                     $image_title   = ($image_id) ? get_the_title($image_id) : '';
                                                     ?>
-                                                    <a href="">
-                                                        <div class="sectionSliderSedes__card">
+                                                    <a href="<?php echo $sede['direccion']['url']; ?>" target="<?php echo $sede['direccion']['target']; ?>">
+                                                        <div class="sectionSliderSedes__card page-health">
                                                             <div class="sectionSliderSedes__img">
                                                                 <img width="<?php echo $image_width ?>" height="<?php echo $image_height ?>" src="<?php echo $image_src ?>" data-src="<?php echo $image_src ?>" srcset="<?php echo $image_srcset ?>" data-srcset="<?php echo $image_srcset ?>" alt="<?php echo $sede['sede'] . ' - ' . $sitename; ?> " title="<?php echo $sede['sede'] ?>">
                                                             </div>
                                                             <div class="sectionSliderSedes__info">
-                                                                <h3 class="heading--25"><?php the_title(); ?></h3>
-                                                                <p class="heading--25 sede"><?php echo $sede['sede']; ?></p>
+                                                                <h3 class="heading--25"><?php echo $sede['sede']; ?></h3>
                                                                 <p class="heading--18 city"><?php echo $sede['ciudad']; ?></p>
+                                                                <div class="heading--18 color--424242 featured">
+                                                                    <p>Servicios destacados</p>
+                                                                    <?php echo $sede['servicios_destacados']; ?>
+                                                                </div>
+                                                                <span class="heading--14 color--2C71A5">
+                                                                    <span>Ir al sitio</span>
+                                                                    <?php 
+                                                                        get_template_part('template-parts/content', 'icono');
+                                                                        display_icon('arrow-next'); 
+                                                                    ?>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </a>
